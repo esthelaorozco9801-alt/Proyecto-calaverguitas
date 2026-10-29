@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    width="300" height="200"
+    style="background: lightgray;"
+    >
+
+    <g>
+        <circle cx="40" cy="40" r="40" fill="#8787ee" 
+        transform="translate(90, 50) scale(1.5)" />
+
+        <polygon points="150,70 70,70 150,20"
+        style="transform-box: fill-box; transform-origin: center;"
+        transform="rotate(70)"/>
+
+        <polygon points="150,70 70,70 150,20"
+        transform="rotate(70) translate(1,-200)"/>
+
+        <ellipse cx="500" cy="350" rx="50" ry="50" fill="#3a3a9a"
+        transform="scale(.3)"/>
+
+        <ellipse cx="400" cy="350" rx="70" ry="50" fill="pink" 
+        transform="scale(.3)"/>
+
+        <ellipse cx="600" cy="350" rx="70" ry="50" fill="pink"
+        transform="scale(.3)"/>
+
+        <ellipse cx="500" cy="450" rx="40" ry="10" 
+        transform="scale(.3)"/>
+    </g>
+
+    <g>
+        <animateTransform attributeName="transform" type="translate" 
+        from="5 5" to="10 00" dur="2s" repeatCount="indefinite">
+        </animateTransform>
+
+        <ellipse cx="600" cy="530" rx="70" ry="50"
+        transform="scale(.2)"/>
+
+        <ellipse cx="900" cy="530" rx="70" ry="50"
+        transform="scale(.2)"/>
+    </g>
+
+
+
+</svg>

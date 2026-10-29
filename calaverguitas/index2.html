@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <link rel="stylesheet" href="style.css">
+  <title>Calaverito</title>
+  <link rel="icon" href="flor.png" type="image/x-icon">
+</head>
+<body>
+
+    <div class="puerta" style="text-align: center;">
+        <img id="puerta" src="puerta_cerrada.jpg" alt="puerta" class="mx-auto" style="cursor:pointer" width="300">
+        
+       
+        <h2 id="mensaje" style="display: none; color: white; margin-top: 15px; font-family: sans-serif;">
+            ¿Quiere pan? 
+        </h2>
+    </div>
+
+
+    <!-- Audios del proyecto -->
+    <audio id="sonido" src="tocarpuerta.mp3" preload="auto"></audio>
+    <audio id="sonidoChumbala" src="chumbala.mp3" preload="auto"></audio>
+    <audio id="sonidoAbrir" src="abriendopuerta.mp3" preload="auto"></audio> 
+
+    <script>
+        const puerta = document.getElementById('puerta');
+        const sonido = document.getElementById('sonido');
+        const sonidoChumbala = document.getElementById('sonidoChumbala');
+        const sonidoAbrir = document.getElementById('sonidoAbrir');
+        const mensaje = document.getElementById('mensaje'); 
+            
+        
+        puerta.addEventListener("mouseenter", () => { 
+            if (puerta.getAttribute('src') === 'puerta_cerrada.jpg') { 
+                sonido.currentTime = 0; 
+                sonido.play().catch(() => {}); 
+            }
+        });
+
+        
+        puerta.addEventListener("click", () => {
+            const imagenActual = puerta.getAttribute('src');
+
+            if (imagenActual === 'puerta_cerrada.jpg') {
+                
+                puerta.setAttribute('src', 'puerta_abierta.png');
+                sonido.pause(); 
+                sonido.currentTime = 0;
+                
+                sonidoAbrir.currentTime = 0;
+                sonidoAbrir.play().catch(() => {});
+            } 
+            else if (imagenActual === 'puerta_abierta.png') {
+                
+                puerta.setAttribute('src', '2.png');
+                puerta.width = 500;
+                mensaje.style.display = 'block'; 
+                
+                sonidoChumbala.currentTime = 0;
+                sonidoChumbala.play().catch(() => {
+                    sonidoChumbala.src = 'img/chumbala.mp3';
+                    sonidoChumbala.play().catch(e => console.log("Error de audio:", e));
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

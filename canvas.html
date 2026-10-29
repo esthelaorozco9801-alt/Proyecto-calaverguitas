@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Práctica  con canvas</title>
+</head>
+<body>
+
+    <canvas id="miCanvas" width="400" height="300" style="border: 1px solid #ccc;"></canvas>
+
+    <script>
+    const canvas = document.getElementById('miCanvas');
+    const ctx = canvas.getContext('2d');
+
+    ctx.fillStyle = '#9e8ae2';
+    ctx.fillRect(130, 100, 100, 170); 
+
+    ctx.fillStyle = '#fec6ee';
+    ctx.fillRect(50, 50, 150, 100); 
+
+    ctx.fillStyle = '#fec6ee';
+    ctx.fillRect(150, 50, 150, 100); 
+    
+    ctx.fillStyle = '#433740';
+    ctx.fillRect(180, 100, 50, 20); 
+
+    ctx.beginPath();
+    ctx.arc(100, 100, 40, 0, Math.PI * 2); // (x, y, radio, ángulo_inicio, ángulo_fin)
+    ctx.fillStyle = '#433740';
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(300, 100, 40, 0, Math.PI * 2); // (x, y, radio, ángulo_inicio, ángulo_fin)
+    ctx.fillStyle = '#433740';
+    ctx.fill();
+    </script>
+
+</body>
+</html>
+

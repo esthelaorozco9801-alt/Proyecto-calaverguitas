@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">  
+  <title>Motion Path práctica</title>
+</head>
+<body>
+    <svg width="300" height="200" viewBox="0 0 300 200" style="background: lightgray">
+
+        <path id="myPath" d="m157.36 149.69c0 0-79.93-53.19-31.73-61.72 
+        48.19-8.52-23.81-45.54-23.81-45.54 0 0 44.08-60.25 
+        72 37.02 27.92 97.27-16.46 70.24-16.46 70.24z" stroke="black" fill="transparent"/>
+
+        <circle r="15" fill="blue">
+            <animateMotion dur="6s" repeatCount="indefinite">
+                <mpath href="#myPath"/>
+            </animateMotion>
+
+        </circle>
+    </svg>
+</body>
+</html>

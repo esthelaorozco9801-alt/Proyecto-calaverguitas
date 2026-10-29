@@ -1,0 +1,14 @@
+body{
+background-image: url('pared.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.puerta{
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.puerta:hover{
+    transform: rotate(5deg) scale(1);
+}

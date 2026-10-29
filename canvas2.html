@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Práctica canvas para cargar imagen</title>
+</head>
+<body>
+
+  <h2>Posicionar imagen local en canvas</h2>
+  <canvas id="miCanvas" width="600" height="400"></canvas>
+
+  <script>
+    const canvas = document.getElementById('miCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const img = new dinojojo();
+    img.src ='/dinojojo.jpg'
+    
+    img.onload = () => {
+      // Dimensiones del lienzo
+      const canvasW = canvas.width;
+      const canvasH = canvas.height;
+
+      // Dimensiones de la imagen
+      const imgW = img.naturalWidth || img.width;
+      const imgH = img.naturalHeight || img.height;
+
+      // Calcular factor de escala para ajustar sin deformar (aspect ratio)
+      const escala = Math.min(canvasW / imgW, canvasH / imgH);
+      const anchoFinal = imgW * escala;
+      const altoFinal = imgH * escala;
+
+      // Calcular coordenadas para centrar la imagen
+      const posX = (canvasW - anchoFinal) / 2;
+      const posY = (canvasH - altoFinal) / 2;
+
+      // Limpiar lienzo previo si fuera necesario
+      ctx.clearRect(0, 0, canvasW, canvasH);
+
+      // Dibujar centrada y ajustada
+      ctx.drawImage(img, posX, posY, anchoFinal, altoFinal);
+    };
+
+    img.onerror = () => {
+      console.error('No se pudo encontrar o cargar la imagen en la ruta especificada.');
+    };
+  </script>
+
+</body>
+</html>
